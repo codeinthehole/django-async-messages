@@ -44,7 +44,7 @@ Yes, there are - but they solve the problem in different ways:
 .. _`django-notifications`: https://github.com/jtauber/django-notification
 
 Install
--------
+=======
 
 From PyPI (stable)::
 
@@ -62,7 +62,7 @@ You need to have ``CACHES`` configured in you settings for this to work.  As usu
 memcache is the best choice.
 
 Use
----
+===
 
 Send a message to a single user::
 
