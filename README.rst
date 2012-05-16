@@ -12,21 +12,28 @@ What problem does this solve?
 
 Suppose a user instigates an expensive task that you are processing offline (eg
 using Celery).  This library provides a simple mechanism for notifying the user
-when the task is finished.
+when the task is finished, utilising Django's messaging framework.
 
-For instance, you might use Celery to generate a large report and then
-use this library to notify the user that their report is ready to be downloaded.
+What's an example?
+------------------
+
+You might use Celery to generate a large report and then employ this library to
+notify the user that their report is ready to be downloaded.  The user will see
+the message you've sent them when they make their next request after the message
+is submitted.
 
 How does it work?
 -----------------
 
 A cache is used to persist the messages, and middleware is used to pick these up
-and add them to Django's messages.  All very simple.
+and submit them to `Django's messaging framework`_.  All very simple.
+
+.. _`Django's messaging framework`: https://docs.djangoproject.com/en/dev/ref/contrib/messages/
 
 Aren't there other libraries that do this?
 ------------------------------------------
 
-Yes, there are - but they solve the problm in different ways:
+Yes, there are - but they solve the problem in different ways:
 
 * `django-offline-messages`_ - this provides an alternative storage backend that
   Django's messages framework can use.
@@ -48,10 +55,10 @@ From Github (unstable)::
     pip install
     git+git://github.com/codeinthehole/django-async-messages#egg=djang-async-messages
 
-Add ``async_messages.middleware.AsyncMiddleware`` to your ``INSTALLED_APPS``.
-Ensure it comes after ``django.contrib.messages.middleware.MessageMiddleware``.
+Add ``'async_messages.middleware.AsyncMiddleware'`` to your ``MIDDLEWARE_CLASSES``.
+Ensure it comes after ``'django.contrib.messages.middleware.MessageMiddleware'``.
 
-You need to have a cache set up in you settings for this to work.  As usual,
+You need to have ``CACHES`` configured in you settings for this to work.  As usual,
 memcache is the best choice.
 
 Use
