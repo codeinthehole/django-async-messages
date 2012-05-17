@@ -43,6 +43,20 @@ Yes, there are - but they solve the problem in different ways:
 .. _`django-offline-messages`: https://github.com/dym/django-offline-messages
 .. _`django-notifications`: https://github.com/jtauber/django-notification
 
+What's good about this implementation?
+--------------------------------------
+
+* It's simple, fast and easy to use.  
+* It works cohesively with existing Django cache and messages framework.  It
+  will work no matter what cache backend your are using, and whatever storage
+  backend is used for messages. 
+
+What's bad?
+-----------
+
+* Only one message per user at the moment, lists of messages to come later.
+* A user may miss the message if they navigating quickly between pages.
+
 Install
 =======
 
