@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.test.client import Client
 from django.contrib.auth.models import User
 
-from async_messages import message_user
+from async_messages import message_user, message_users
 
 
 class MiddlewareTests(TestCase):
@@ -20,8 +20,8 @@ class MiddlewareTests(TestCase):
         self.assertEqual(1, len(messages))
         self.assertEqual('Hello', str(messages[0]))
 
-    def test_message_appears_only_once_for_user(self):
-        message_user(self.user, "Hello")
+    def test_message_appears_all_users(self):
+        message_users(User.objects.all(), "Hello")
         response = self.client.get('/')
         messages = list(response.context['messages'])
         self.assertEqual(1, len(messages))
