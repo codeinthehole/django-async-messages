@@ -9,4 +9,5 @@ setup(name='django-async-messages',
       description="Send asynchronous messages to users",
       long_description=open('README.rst').read(),
       packages=find_packages(exclude=['tests']),
+      install_requires=['django==1.4'],
       )
