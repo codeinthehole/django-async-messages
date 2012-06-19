@@ -66,8 +66,7 @@ From PyPI (stable)::
 
 From Github (unstable)::
 
-    pip install
-    git+git://github.com/codeinthehole/django-async-messages#egg=djang-async-messages
+    pip install git+git://github.com/codeinthehole/django-async-messages#egg=djang-async-messages
 
 Add ``'async_messages.middleware.AsyncMiddleware'`` to your ``MIDDLEWARE_CLASSES``.
 Ensure it comes after ``'django.contrib.messages.middleware.MessageMiddleware'``.
