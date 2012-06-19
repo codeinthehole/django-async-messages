@@ -5,7 +5,7 @@ from async_messages import get_message
 
 class AsyncMiddleware(object):
 
-    def process_request(self, request):
+    def process_response(self, request, response):
         # Check for message for this user and, if it exists,
         # call the messages API with it
         if not request.user.is_authenticated():
