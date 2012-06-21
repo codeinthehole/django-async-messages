@@ -2,7 +2,7 @@
 from setuptools import setup, find_packages
 
 setup(name='django-async-messages',
-      version='0.1.2',
+      version='0.1.3',
       url='https://github.com/codeinthehole/django-async-messages',
       author="David Winterbottom",
       author_email="david.winterbottom@gmail.com",
