@@ -98,6 +98,10 @@ Specify message level::
 Changelog
 =========
 
+0.1.2
+-----
+* Altered dependency on Django to be only 1.2+
+
 0.1.1
 -----
 * Altered middleware to use ``process_response``.
