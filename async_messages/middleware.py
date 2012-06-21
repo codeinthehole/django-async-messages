@@ -13,3 +13,4 @@ class AsyncMiddleware(object):
         msg, level = get_message(request.user)
         if msg:
             messages.add_message(request, level, msg)
+        return response
