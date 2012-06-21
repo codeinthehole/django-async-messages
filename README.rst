@@ -94,3 +94,15 @@ Specify message level::
 
     >>> from django.contrib.messages import constants
     >>> message_users(staff, "Boom!", constants.WARNING)
+
+Changelog
+=========
+
+0.1.1
+-----
+* Altered middleware to use ``process_response``.
+* Better docstrings
+
+0.1
+---
+* Minimum viable product
