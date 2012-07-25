@@ -2,7 +2,7 @@
 django-async-messages
 =====================
 
-Simple asynchronous messages for django.  
+Simple asynchronous messages for django.  Plays nicely with Celery.
 
 Questions
 =========
@@ -72,7 +72,10 @@ Add ``'async_messages.middleware.AsyncMiddleware'`` to your ``MIDDLEWARE_CLASSES
 Ensure it comes after ``'django.contrib.messages.middleware.MessageMiddleware'``.
 
 You need to have ``CACHES`` configured in you settings for this to work.  As usual,
-memcache is the best choice.
+memcache is the best choice.  See Django's `cache documentation`_ for more
+information.
+
+.. _`cache documentation`: https://docs.djangoproject.com/en/dev/topics/cache/?from=olddocs/
 
 Use
 ===
@@ -94,6 +97,13 @@ Specify message level::
 
     >>> from django.contrib.messages import constants
     >>> message_users(staff, "Boom!", constants.WARNING)
+
+License
+=======
+
+MIT_
+
+.. _MIT: http://en.wikipedia.org/wiki/MIT_License
 
 Changelog
 =========
