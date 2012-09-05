@@ -10,12 +10,11 @@ def message_user(user, message, level=constants.INFO):
     :param message: Message to show
     :param level: Message level
     """
-
+    # We store a list of messages in the cache so we can have multiple messages
+    # queued up for a user.
     user_key = _user_key(user)
-
     messages = cache.get(user_key) or []
     messages.append((message, level))
-
     cache.set(user_key, messages)
 
 
@@ -23,7 +22,7 @@ def message_users(users, message, level=constants.INFO):
     """
     Send a message to a group of users.
 
-    :param users: Users queryset 
+    :param users: Users queryset
     :param message: Message to show
     :param level: Message level
     """
@@ -33,7 +32,7 @@ def message_users(users, message, level=constants.INFO):
 
 def get_messages(user):
     """
-    Fetch a message for given user.  Returns None if no such message exists.
+    Fetch messages for given user.  Returns None if no such message exists.
 
     :param user: User instance
     """

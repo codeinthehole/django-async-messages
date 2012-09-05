@@ -107,8 +107,8 @@ Send multiple messages to a single user::
 Changelog
 =========
 
-0.1.5
------
+0.2
+---
 * Added possibility to queue multiple messages
 
 0.1.2
