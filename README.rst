@@ -54,8 +54,8 @@ What's good about this implementation?
 What's bad?
 -----------
 
-* Only one message per user at the moment, lists of messages to come later.
-* A user may miss the message if they navigating quickly between pages.
+* A user may miss the message if they navigating quickly between pages. But 
+  this is a general problem of the Django messages framework.
 
 Install
 =======
@@ -95,8 +95,21 @@ Specify message level::
     >>> from django.contrib.messages import constants
     >>> message_users(staff, "Boom!", constants.WARNING)
 
+Send multiple messages to a single user::
+
+    >>> from async_messages import message_user
+    >>> from django.contrib.auth.models import User
+    >>> barry = User.objects.get(username='barry')
+    >>> message_user(barry, "Barry, your report is queued up for processing") 
+    >>> # do more awesome stuff
+    >>> message_user(barry, "Barry, your report is ready") 
+
 Changelog
 =========
+
+0.1.5
+-----
+* Added possibility to queue multiple messages
 
 0.1.2
 -----

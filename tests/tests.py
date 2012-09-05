@@ -27,6 +27,15 @@ class MiddlewareTests(TestCase):
         self.assertEqual(1, len(messages))
         self.assertEqual('Hello', str(messages[0]))
 
+    def test_message_queue(self):
+        message_user(self.user, "First Message")
+        message_user(self.user, "Second Message")
+        response = self.client.get('/')
+        messages = list(response.context['messages'])
+        self.assertEqual(2, len(messages))
+        self.assertEqual('Second Message', str(messages[1]))
+
+
 class AnonynousUserTests(TestCase):
     def test_anonymous(self):
         client = Client()

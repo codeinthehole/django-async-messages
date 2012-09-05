@@ -10,7 +10,13 @@ def message_user(user, message, level=constants.INFO):
     :param message: Message to show
     :param level: Message level
     """
-    cache.set(_user_key(user), (message, level))
+
+    user_key = _user_key(user)
+
+    messages = cache.get(user_key) or []
+    messages.append((message, level))
+
+    cache.set(user_key, messages)
 
 
 def message_users(users, message, level=constants.INFO):
@@ -25,7 +31,7 @@ def message_users(users, message, level=constants.INFO):
         message_user(user, message, level)
 
 
-def get_message(user):
+def get_messages(user):
     """
     Fetch a message for given user.  Returns None if no such message exists.
 
@@ -35,8 +41,8 @@ def get_message(user):
     result = cache.get(key)
     if result:
         cache.delete(key)
-        return result[0], result[1]
-    return None, None
+        return result
+    return None
 
 
 def _user_key(user):
