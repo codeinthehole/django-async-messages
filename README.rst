@@ -104,6 +104,19 @@ Send multiple messages to a single user::
     >>> # do more awesome stuff
     >>> message_user(barry, "Barry, your report is ready") 
 
+Contributing
+============
+
+Fork, clone and create a virtualenv.  Then run::
+
+    make install
+
+Run tests with::
+
+    ./runtests.py
+
+Please submit pull requests using 'develop' as the target branch.
+
 Changelog
 =========
 

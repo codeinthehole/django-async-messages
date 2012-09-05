@@ -1,0 +1,4 @@
+Django==1.4
+django-nose==1.1
+nose==1.1.2
+pinocchio==0.3.1
