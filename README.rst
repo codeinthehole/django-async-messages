@@ -2,7 +2,7 @@
 django-async-messages
 =====================
 
-Simple asynchronous messages for django.  
+Simple asynchronous messages for django.  Plays nicely with Celery.
 
 Questions
 =========
@@ -120,6 +120,13 @@ Run tests with::
     ./runtests.py
 
 Please submit pull requests using 'develop' as the target branch.
+
+License
+=======
+
+MIT_
+
+.. _MIT: http://en.wikipedia.org/wiki/MIT_License
 
 Changelog
 =========
