@@ -72,7 +72,11 @@ Add ``'async_messages.middleware.AsyncMiddleware'`` to your ``MIDDLEWARE_CLASSES
 Ensure it comes after ``'django.contrib.messages.middleware.MessageMiddleware'``.
 
 You need to have ``CACHES`` configured in you settings for this to work.  As usual,
-memcache is the best choice.
+memcache is the best choice.  Note that `local memory caching`_ is not suitable as
+each process has its own private cache and a Celery task can't communicate with
+the webserver process cache.
+
+.. _`local memory caching`: https://docs.djangoproject.com/en/dev/topics/cache/#local-memory-caching
 
 Use
 ===
