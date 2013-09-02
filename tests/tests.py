@@ -12,7 +12,7 @@ class MiddlewareTests(TestCase):
         self.user = User.objects.create_user(username, "django-async@test.com", password)
         self.client = Client()
         self.client.login(username=username, password=password)
-    
+
     def test_message_appears_for_user(self):
         message_user(self.user, "Hello")
         response = self.client.get('/')
@@ -39,6 +39,6 @@ class MiddlewareTests(TestCase):
 class AnonynousUserTests(TestCase):
     def test_anonymous(self):
         client = Client()
-        response = self.client.get('/')
+        response = client.get('/')
         messages = list(response.context['messages'])
         self.assertEqual(0, len(messages))
