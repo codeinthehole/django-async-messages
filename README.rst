@@ -141,6 +141,10 @@ MIT_
 Changelog
 =========
 
+0.3
+---
+* Mimic ``django.contrib.messages`` API for sending a message to a user
+
 0.2
 ---
 * Added possibility to queue multiple messages
