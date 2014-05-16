@@ -141,6 +141,10 @@ MIT_
 Changelog
 =========
 
+0.3.1
+-----
+* Fix bug around request instances that don't have a user attribute
+
 0.3
 ---
 * Mimic ``django.contrib.messages`` API for sending a message to a user
